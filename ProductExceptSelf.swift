@@ -6,19 +6,19 @@ class Solution {
         // Product of left side and right side?
 
         var result  = [1]
-        let count = nums.count
+        let count = nums.count - 1
         for (i, num) in nums.enumerated() {
-            if i == count - 1 {
+            if i == count {
                 break
             }
             result.append(result[i] * num)
         }
         var suffix = 1
         for (i, num) in nums.reversed().enumerated() {
-            result[count - i - 1] *= suffix
+            result[count - i] *= suffix
             suffix *= num
         }
-        
+
         return result
     }
 }
